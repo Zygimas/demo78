@@ -1,19 +1,12 @@
 package com.ca.security.roles.demo78.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
-import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
@@ -25,25 +18,26 @@ public class SecurityConfig {
 
     private PasswordEncoder passwordEncoder;
 
-    private DataSource dataSource;
+   // private DataSource dataSource;
 
-    @Autowired
+   /* @Autowired
     @Qualifier("userDetailsServiceImpl")
     public void setUserDetailsService(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
-    }
+    }*/
 
     @Autowired
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
-
+/*
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
+*/
 
-    @Bean
+   /* @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests()
@@ -68,18 +62,23 @@ public class SecurityConfig {
                 .permitAll()
              .and()
                 .build();
-    }
-
+    }*/
+/*
     @Bean
     public PersistentTokenRepository tokenRepository() {
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
         tokenRepository.setDataSource(dataSource);
         return tokenRepository;
-    }
+    }*/
 
+    @Autowired
+    private AuthProvider customIdentityAuthenticationProvider;
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder);
+               // .userDetailsService(userDetailsService)
+               // .passwordEncoder(passwordEncoder)
+                .authenticationProvider(customIdentityAuthenticationProvider);
     }
+
+
 }

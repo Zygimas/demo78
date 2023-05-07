@@ -21,5 +21,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new UserDetailsImpl(
                 userRepository.findByUsername(username)
                         .orElseThrow(IllegalArgumentException::new));
+
     }
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head">
+<head th:replace="~{fragments/head :: head}">
     <title></title></head>
 <body>
 
@@ -10,7 +10,7 @@
 
 <div class="container">
     <h2>Please Login!</h2>
-    <form action="/login" method="post" >
+    <form action="/login/check" method="post" >
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" class="form-control" id="username" placeholder="Enter user name" name="username">

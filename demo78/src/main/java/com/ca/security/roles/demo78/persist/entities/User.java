@@ -2,7 +2,7 @@ package com.ca.security.roles.demo78.persist.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.List;
+
 import java.util.Objects;
 
 @Entity
@@ -27,9 +27,10 @@ public class User {
     @Column
     private boolean active;
 
+    /*
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Note> notes;
-
+*/
     public User() {
     }
 
@@ -72,7 +73,7 @@ public class User {
     public void setActive(boolean active) {
         this.active = active;
     }
-
+/*
     public List<Note> getNotes() {
         return notes;
     }
@@ -80,7 +81,7 @@ public class User {
     public void setNotes(List<Note> notes) {
         this.notes = notes;
     }
-
+*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

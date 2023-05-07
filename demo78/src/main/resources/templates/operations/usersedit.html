@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
+<head th:replace="~{fragments/head :: head}"></head>
 <body>
 <div class="container">
-    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="~{fragments/head :: head}"></div>
     <div class="container">
         <form class="form-horizontal" th:object="${user}" th:action="@{/users/update}" th:method="put"
               name="edit_form" id="edit_form" method="post" role="form">
