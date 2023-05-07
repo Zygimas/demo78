@@ -4,5 +4,7 @@
     <file url="file://$PROJECT_DIR$/demo78/src/main/java/com/ca/security/roles/demo78/DatabaseConnectionTest.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/demo78/src/main/resources/db/data.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/demo78/src/main/resources/db/schema.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/demo78/test/resources/com/example/notes/data_notes.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/demo78/test/resources/com/example/notes/data_users.sql" dialect="GenericSQL" />
   </component>
 </project>
