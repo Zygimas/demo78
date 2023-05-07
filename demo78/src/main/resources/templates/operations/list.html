@@ -27,7 +27,6 @@
         </tr>
         </thead>
         <tbody>
-        <!--        <tr th:each="note : ${notes}">-->
         <tr th:each="note : ${page.content}">
             <td th:text="${note.id}" style="text-align: center">#</td>
             <td th:text="${note.message}">Message</td>

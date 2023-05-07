@@ -7,12 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -43,22 +39,6 @@ public class demo78Application implements CommandLineRunner {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public UserDetailsService inMemoryUserDetailsService() {
-        UserDetails min = User
-            .withUsername("mmam")
-            .password(passwordEncoder().encode("mmam"))
-            .roles("USER")
-            .build();
-
-        UserDetails sup = User
-            .withUsername("zzyz")
-            .password(passwordEncoder().encode("zzyz"))
-            .roles("USER", "ADMIN")
-            .build();
-
-        return new InMemoryUserDetailsManager(min, sup);
-    }
 
     @Override
     public void run(String... args) throws Exception {

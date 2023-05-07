@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="users">
@@ -15,7 +14,6 @@
         </tr>
         </thead>
         <tbody>
-        <!--        <tr th:each="user : ${users}">-->
         <tr th:each="user : ${page.content}">
             <td th:text="${user.id}" style="text-align: center">#</td>
             <td th:text="${user.username}">Username</td>
